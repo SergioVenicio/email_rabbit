@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>
+    {% block title %}{% endblock %} - Email sender
+</title>
+
+<link rel="stylesheet" href= "{{ url_for('static',filename='bootstrap/css/bootstrap.min.css') }}">
+
+{% block style %}
+{% endblock %}
+
+</head>
+
+<body>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            {% block body %}
+            {% endblock %}
+        </div>
+    </div>
+</div>
+</body>
+<script src="{{ url_for('static', filename='js/jquery.min.js') }}"></script>
+<script src="{{ url_for('static', filename='bootstrap/js/bootstrap.min.js') }}"></script>
+{% block script %}
+{% endblock %}
+
+</html> 
