@@ -1,4 +1,8 @@
 import os
+import sys
+
+sys.path.append("..")
+
 from flask import Flask
 from config import config
 

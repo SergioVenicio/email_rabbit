@@ -8,8 +8,6 @@ from flask import (
 @app.route('/post_msg', methods=['POST'])
 def send_to_queue():
 
-    channel = app.email_queue.publisher_channel
-
     email = request.form.get('email')
     msg = request.form.get('msg')
     subject = request.form.get('subject')
@@ -35,9 +33,7 @@ def send_to_queue():
         'msg': msg
     })
 
-    channel.basic_publish(
-        exchange='emails', routing_key='emails', body=json_msg
-    )
+    app.email_queue.publish_msg(body=json_msg)
 
     return make_response(jsonify({
         'success': 'email send!'
